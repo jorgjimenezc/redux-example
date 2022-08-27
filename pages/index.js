@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { MuiTest } from "../components/muiTest";
 
 export default function Home() {
   return (
@@ -10,9 +11,11 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1>
+        <h1 className="text-white">
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
+
+        <MuiTest />
       </main>
     </div>
   );
