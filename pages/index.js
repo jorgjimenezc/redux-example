@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { MuiTest } from "../components/muiTest";
+import { ConvertionComponent } from "../components/convertionComponent";
 
 export default function Home() {
   return (
@@ -11,11 +11,13 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1 className="text-white">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+        <h1>Currency exchange house</h1>
+        <hr />
 
-        <MuiTest />
+        <br />
+
+        <ConvertionComponent exchangeRate={3} />
+        <ConvertionComponent exchangeRate={1.2} />
       </main>
     </div>
   );
