@@ -1,9 +1,14 @@
 import Head from "next/head";
+import { useState } from "react";
 import { ConvertionComponent } from "../components/convertionComponent";
 import CurrencyExchangeComponent from "../components/currencyExchangeComponent";
 
 export default function Home() {
-  let exchangeRate = 3;
+  const [exchangeRate, setExchangeRate] = useState(3);
+
+  const updateExchangeRate = (newExchangeRate) => {
+    setExchangeRate(newExchangeRate);
+  };
 
   return (
     <div>
@@ -20,7 +25,10 @@ export default function Home() {
         <br />
 
         <ConvertionComponent exchangeRate={exchangeRate} />
-        <CurrencyExchangeComponent />
+        <CurrencyExchangeComponent
+          exchangeRate={exchangeRate}
+          updateExchangeRate={updateExchangeRate}
+        />
       </main>
     </div>
   );

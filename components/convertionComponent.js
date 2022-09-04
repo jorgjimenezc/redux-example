@@ -10,11 +10,13 @@ export function ConvertionComponent(props) {
 
   useEffect(() => {
     calculateConvertedAmount();
-  }, [amountToConvert]);
+  }, [amountToConvert, props.exchangeRate]);
 
   const calculateConvertedAmount = () => {
-    let amountInDollars = amountToConvert / exchangeRate;
-    setConvertedAmount(amountInDollars);
+    if (exchangeRate) {
+      let amountInDollars = amountToConvert / exchangeRate;
+      setConvertedAmount(amountInDollars);
+    }
   };
 
   return (

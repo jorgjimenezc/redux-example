@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function CurrencyExchangeComponent() {
-  const [exchangeRate, setExchangeRate] = useState(3);
+export default function CurrencyExchangeComponent(props) {
+  const [exchangeRate, setExchangeRate] = useState(props.exchangeRate);
+
+  useEffect(() => {
+    props.updateExchangeRate(exchangeRate);
+  }, [exchangeRate]);
 
   return (
     <>
