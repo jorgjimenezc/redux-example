@@ -1,7 +1,10 @@
 import Head from "next/head";
 import { ConvertionComponent } from "../components/convertionComponent";
+import CurrencyExchangeComponent from "../components/currencyExchangeComponent";
 
 export default function Home() {
+  let exchangeRate = 3;
+
   return (
     <div>
       <Head>
@@ -16,8 +19,8 @@ export default function Home() {
 
         <br />
 
-        <ConvertionComponent exchangeRate={3} />
-        <ConvertionComponent exchangeRate={1.2} />
+        <ConvertionComponent exchangeRate={exchangeRate} />
+        <CurrencyExchangeComponent />
       </main>
     </div>
   );
