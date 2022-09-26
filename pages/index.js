@@ -1,13 +1,17 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { ConvertionComponent } from "../components/convertionComponent";
 import CurrencyExchangeComponent from "../components/currencyExchangeComponent";
+import { updateExchangeRate } from "../redux/slices/exchangeRateSlice";
 
 export default function Home() {
-  const [exchangeRate, setExchangeRate] = useState(3);
+  const reduxDispatch = useDispatch();
+  const reduxExchangeRate = useSelector(
+    (state) => state.exchangeRateReducer.exchangeRate
+  );
 
-  const updateExchangeRate = (newExchangeRate) => {
-    setExchangeRate(newExchangeRate);
+  const reduxUpdateExchangeRate = (newExchangeRate) => {
+    reduxDispatch(updateExchangeRate(newExchangeRate));
   };
 
   return (
@@ -24,10 +28,10 @@ export default function Home() {
 
         <br />
 
-        <ConvertionComponent exchangeRate={exchangeRate} />
+        <ConvertionComponent exchangeRate={reduxExchangeRate} />
         <CurrencyExchangeComponent
-          exchangeRate={exchangeRate}
-          updateExchangeRate={updateExchangeRate}
+          exchangeRate={reduxExchangeRate}
+          updateExchangeRate={reduxUpdateExchangeRate}
         />
       </main>
     </div>
